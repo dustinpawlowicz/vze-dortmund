@@ -1,0 +1,112 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ 'REGISTRATION.TITLE' | translate }}</ion-title>
+    <ion-buttons slot='start'>
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]='registrationForm' class='ion-padding' (submit)='doRegistration()' (keyup.enter)='doRegistration()' *ngIf='roles'>
+    <ion-list>
+      <div> 
+        <ion-list-header>
+            {{ 'USER_INFORMATION' | translate }}:
+        </ion-list-header>
+
+        <div>
+          <ion-item>
+            <ion-label position='floating'>{{ 'USERNAME' | translate }}:</ion-label>
+            <ion-input formControlName='username' type='text' autofocus='true'></ion-input>
+          </ion-item>
+          <ion-item lines='none' *ngIf='!registrationForm.controls.username.valid && (registrationForm.touched || registrationForm.dirty)'>
+            <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>
+            <ion-text color='danger'>
+              <div *ngIf='!!registrationForm.controls.username.errors.required'>{{ 'VALIDATION.REQUIRED' | translate }}</div>
+            </ion-text>
+          </ion-item>
+        </div>
+        <div>
+          <ion-item>
+            <ion-label position='floating'>{{ 'FIRST_NAME' | translate }}:</ion-label>
+            <ion-input formControlName='firstName' type='text'></ion-input>
+          </ion-item>
+          <ion-item lines='none' *ngIf='!registrationForm.controls.firstName.valid && (registrationForm.touched || registrationForm.dirty)'>
+            <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>
+            <ion-text color='danger'>
+              <div *ngIf='!!registrationForm.controls.firstName.errors.required'>{{ 'VALIDATION.REQUIRED' | translate }}</div>
+            </ion-text>
+          </ion-item>
+        </div>
+        <div>
+          <ion-item>
+            <ion-label position='floating'>{{ 'LAST_NAME' | translate }}:</ion-label>
+            <ion-input formControlName='lastName' type='text'></ion-input>
+          </ion-item>
+          <ion-item lines='none' *ngIf='!registrationForm.controls.lastName.valid && (registrationForm.touched || registrationForm.dirty)'>
+            <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>
+            <ion-text color='danger'>
+              <div *ngIf='!!registrationForm.controls.lastName.errors.required'>{{ 'VALIDATION.REQUIRED' | translate }}</div>
+            </ion-text>
+          </ion-item>
+        </div>
+        <div>
+          <ion-item>
+            <ion-label position='floating'>{{ 'PASSWORD' | translate }}:</ion-label>
+            <ion-input formControlName='password' type='password'></ion-input>
+          </ion-item>
+          <ion-item lines='none' *ngIf='!registrationForm.controls.password.valid && (registrationForm.touched || registrationForm.dirty)'>
+            <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>
+            <ion-text color='danger'>
+              <div *ngIf='!!registrationForm.controls.password.errors.required'>{{ 'VALIDATION.REQUIRED' | translate }}</div>
+              <div *ngIf='!!registrationForm.controls.password.errors.minlength' translate [translateParams]='{ "minLength": MIN_PASSWORD_LENGTH }'>
+                VALIDATION.MIN_LENGTH
+              </div>
+            </ion-text>
+          </ion-item>
+        </div>
+        <div>
+          <ion-item>
+            <ion-label position='floating'>{{ 'ROLE' | translate }}:</ion-label>
+            <ion-select formControlName='roleName' class='capitalize' [okText]='"OK" | translate' [cancelText]='"CANCEL" | translate' [placeholder]='"SELECT_ONE" | translate'>
+              <ion-select-option *ngFor='let role of roles'>{{role.name}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item lines='none' *ngIf='!registrationForm.controls.roleName.valid && (registrationForm.touched || registrationForm.dirty)'>
+            <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>
+            <ion-text color='danger'>
+              <div *ngIf='!!registrationForm.controls.roleName.errors.required'>{{ 'VALIDATION.REQUIRED' | translate }}</div>
+            </ion-text>
+          </ion-item>
+        </div>
+      </div>
+      <div>  
+        <ion-list-header>
+            {{ 'ADMIN_CONFIRM' | translate }}
+        </ion-list-header>
+        <div>
+          <ion-item>
+            <ion-label position='floating'>{{ 'USERNAME' | translate }}:</ion-label>
+            <ion-input formControlName='adminUsername' type='text'></ion-input>
+          </ion-item>
+        </div>
+        <div>
+          <ion-item>
+            <ion-label position='floating'>{{ 'PASSWORD' | translate }}:</ion-label>
+            <ion-input formControlName='adminPassword' type='password'></ion-input>
+          </ion-item>
+          <ion-item lines='none' *ngIf='!registrationForm.controls.adminPassword.valid && (registrationForm.touched || registrationForm.dirty)'>
+            <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>
+            <ion-text color='danger'>
+              <div *ngIf='!!registrationForm.controls.adminPassword.errors.required'>{{ 'VALIDATION.REQUIRED' | translate }}</div>
+            </ion-text>
+          </ion-item>
+        </div>
+        <div class='ion-padding-top'>
+          <ion-button type='submit' expand='block'>{{ 'REGISTRATION.BUTTON' | translate }}</ion-button>
+        </div>
+      </div>
+    </ion-list>  
+  </form>
+</ion-content>

@@ -1,0 +1,14 @@
+<ion-content>
+    <div id='map' style='width:100%; height:100%;'></div>
+
+    <ion-fab horizontal='end' vertical='top' slot='fixed' class='geolocation'>
+        <ion-fab-button [color]="locationFabColor" (click)='toggleWatchPosition()'>
+            <ion-icon name='locate'></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+    <ion-fab horizontal='end' vertical='bottom' slot='fixed' class='visualRecording'>
+        <ion-fab-button (click)='doVisualRecording()' [disabled]='!selectedEdge' color='tertiary'>
+            <ion-icon name='add'></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-content>

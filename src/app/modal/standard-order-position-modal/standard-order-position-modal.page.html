@@ -1,0 +1,152 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ 'RECORDING.CHARACTERISTICS.POSITION_TYPES.STANDARD' | translate }}</ion-title>
+    <ion-buttons slot='end'>
+      <ion-button color='primary' (click)='cancelOrder()'>{{ 'CANCEL' | translate }}</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+  
+<ion-content>
+  <form [formGroup]='standardOrderPositionForm' class='ion-padding' (submit)='submitOrder()' (keyup.enter)='submitOrder()'>
+    <ion-list>
+      <div>
+        <ion-radio-group formControlName='characteristicGroup'>
+          <ion-list-header>
+              {{ 'RECORDING.CHARACTERISTICS.GROUP' | translate }}:
+          </ion-list-header>
+          <ion-grid>
+            <ion-row>
+              <ion-col *ngFor='let characteristicGroup of characteristicGroups'>
+                <ion-item>
+                  <ion-label>{{ 'RECORDING.CHARACTERISTICS.GROUPS.' + (characteristicGroup.key | uppercase) | translate }}</ion-label>
+                  <ion-radio [value]='characteristicGroup'></ion-radio>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-radio-group>
+        <ion-item lines='none' *ngIf='!standardOrderPositionForm.controls.characteristicGroup.valid && (standardOrderPositionForm.touched || standardOrderPositionForm.dirty)'>
+          <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>
+          <ion-text color='danger'>
+            <div *ngIf='!!standardOrderPositionForm.controls.characteristicGroup.errors.required'>{{ 'VALIDATION.REQUIRED' | translate }}</div>
+          </ion-text>
+        </ion-item> 
+      </div>
+      <div *ngIf='selectedCharacteristicGroup'>
+        <ion-radio-group formControlName='conditionCharacteristic'>
+          <ion-list-header>
+              {{ 'RECORDING.CHARACTERISTICS.CONDITION' | translate }}:
+          </ion-list-header>
+          <ion-grid>
+            <ion-row>
+              <ion-col *ngFor='let conditionCharacteristic of selectedCharacteristicGroup.conditionCharacteristic'>
+                <ion-item>
+                  <ion-label>{{ 'RECORDING.CHARACTERISTICS.CONDITIONS.' + (conditionCharacteristic.key | uppercase) | translate }}</ion-label>
+                  <ion-radio [value]='conditionCharacteristic'></ion-radio>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-radio-group>
+        <ion-item lines='none' *ngIf='!standardOrderPositionForm.controls.conditionCharacteristic.valid && (standardOrderPositionForm.touched || standardOrderPositionForm.dirty)'>
+          <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>
+          <ion-text color='danger'>
+            <div *ngIf='!!standardOrderPositionForm.controls.conditionCharacteristic.errors.required'>{{ 'VALIDATION.REQUIRED' | translate }}</div>
+          </ion-text>
+        </ion-item> 
+      </div>
+      <div *ngIf='selectedConditionCharacteristic'>
+        <ion-radio-group formControlName='conditionIndicator'>
+          <ion-list-header>
+              {{ 'RECORDING.CHARACTERISTICS.CONDITION' | translate }}:
+          </ion-list-header>
+          <ion-grid>
+            <ion-row>
+              <ion-col *ngFor='let conditionIndicator of selectedConditionCharacteristic.conditionIndicator'>
+                <ion-item>
+                  <ion-label>{{ conditionIndicator.key | uppercase }}</ion-label>
+                  <ion-radio [value]='conditionIndicator'></ion-radio>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-radio-group>
+        <ion-item lines='none' *ngIf='!standardOrderPositionForm.controls.conditionIndicator.valid && (standardOrderPositionForm.touched || standardOrderPositionForm.dirty)'>
+          <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>
+          <ion-text color='danger'>
+            <div *ngIf='!!standardOrderPositionForm.controls.conditionIndicator.errors.required'>{{ 'VALIDATION.REQUIRED' | translate }}</div>
+          </ion-text>
+        </ion-item> 
+      </div>
+      <div *ngIf='selectedConditionIndicator'>
+        <div *ngIf='magnitudes'>
+          <ion-list-header>
+            {{ 'RECORDING.CHARACTERISTICS.MAGNITUDE' | translate }}:
+          </ion-list-header>
+          <ion-radio-group formControlName='magnitude'>
+            <ion-grid>
+              <ion-row>
+                <ion-col *ngFor='let magnitude of magnitudes'>
+                  <ion-item>
+                    <ion-label>{{ 'RECORDING.CHARACTERISTICS.MAGNITUDES.' + (magnitude.key | uppercase) | translate }}: {{ magnitude.text }}</ion-label>
+                    <ion-radio [value]='magnitude'></ion-radio>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-radio-group>
+          <ion-item lines='none' *ngIf='!standardOrderPositionForm.controls.magnitude.valid && (standardOrderPositionForm.touched || standardOrderPositionForm.dirty)'>
+            <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>
+            <ion-text color='danger'>
+              <div *ngIf='!!standardOrderPositionForm.controls.magnitude.errors.required'>{{ 'VALIDATION.REQUIRED' | translate }}</div>
+            </ion-text>
+          </ion-item>
+        </div>
+        <div>
+          <ion-item>
+            <ion-label position='floating'>{{ 'RECORDING.CHARACTERISTICS.EXPANSE' | translate }} (m²):</ion-label>
+            <ion-input type='text' inputmode='numeric' formControlName='expanse'></ion-input>
+          </ion-item>
+          <ion-item lines='none' *ngIf='!standardOrderPositionForm.controls.expanse.valid && (standardOrderPositionForm.touched || standardOrderPositionForm.dirty)'>
+            <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>
+            <ion-text color='danger'>
+              <div *ngIf='!!standardOrderPositionForm.controls.expanse.errors.required'>{{ 'VALIDATION.REQUIRED' | translate }}</div>
+              <div *ngIf='!!standardOrderPositionForm.controls.expanse.errors.pattern'>{{ 'VALIDATION.PATTERN' | translate }}</div>
+            </ion-text>
+          </ion-item> 
+        </div>
+        <div>
+          <ion-item-sliding *ngFor='let picture of pictures'>
+            <ion-item>
+              <ion-thumbnail slot='start'>
+                <ion-img [src]='picture.dataUrl' [alt]='picture.filename'></ion-img>
+              </ion-thumbnail>
+              <ion-label>
+                <h2>
+                    {{picture.filename}}
+                </h2>
+                <p>
+                    {{picture.path}}
+                </p>
+              </ion-label>
+            </ion-item>
+            <ion-item-options side='end'>
+              <ion-item-option color='danger' (click)='removePicture(picture)'>{{ 'CLEAR' | translate }}</ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </div>
+        <div class='ion-padding-top'>
+          <ion-button (click)='addPicture()' type='button' expand='block'>
+            <ion-icon slot='start' name='camera'></ion-icon>
+            {{ 'RECORDING.CHARACTERISTICS.ADD_PICTURE' | translate }}
+          </ion-button>
+        </div>
+        <div class='ion-padding-top'>
+          <ion-button type='submit' expand='block'>{{ 'RECORDING.CHARACTERISTICS.ADD_ORDER_POSITION' | translate }}</ion-button>
+        </div>
+      </div>
+    </ion-list>
+  </form>
+</ion-content>
+  

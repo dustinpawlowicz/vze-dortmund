@@ -1,0 +1,127 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ 'PROFILE.TITLE' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class='ion-padding'>
+    <div>
+      <ion-list>
+        <ion-list-header>
+            {{ 'USER_INFORMATION' | translate }}:
+        </ion-list-header>
+
+        <ion-item lines='none'>
+          <ion-label>{{ 'USERNAME' | translate }}: {{ profile.username }}</ion-label>
+        </ion-item>
+
+        <ion-item lines='none'>
+            <ion-label>{{ 'FIRST_NAME' | translate }}: {{ profile.firstName }}</ion-label>
+        </ion-item>
+
+        <ion-item lines='none'>
+            <ion-label>{{ 'LAST_NAME' | translate }}: {{ profile.lastName }}</ion-label>
+        </ion-item>
+
+        <ion-item lines='none'>
+            <ion-label>{{ 'ROLE' | translate }}: {{ profile.roleName }}</ion-label>
+        </ion-item>
+
+        <div class='ion-padding-top'>
+          <ion-button type='button' expand='block' (click)='doLogout()'>{{ 'PROFILE.LOGOUT' | translate }}</ion-button>
+        </div>
+
+        <div class='ion-padding-top'>
+          <ion-button type='button' expand='block' routerLink='/change-password'>{{ 'CHANGE_PASSWORD.TITLE' | translate }}</ion-button>
+        </div>
+      </ion-list>
+    </div>
+    <div>
+      <form [formGroup]='roadConditionForm'>
+        <ion-list>
+          <ion-list-header>
+              {{ 'PROFILE.ROAD_CONDITION_REGISTRATIONS' | translate }}:
+          </ion-list-header>
+          <ion-item lines='none'>
+              <ion-label>{{ 'PROFILE.NUMBER_OF_RECORDINGS_TOTAL' | translate }}: {{ statistic.recordingsTotal }}</ion-label>
+          </ion-item>
+          <ion-item lines='none'>
+              <ion-label>{{ 'PROFILE.NUMBER_OF_RECORDINGS_SELECTED_RANGE' | translate }}: {{ statistic.recordingsSelectedRange }}</ion-label>
+          </ion-item>
+          <div formGroupName='dates'>
+            <ion-item>
+              <ion-label position='floating'>{{ 'PROFILE.STARTING_DATE' | translate }}</ion-label>
+              <ion-datetime
+                formControlName='beginDate'
+                displayFormat='DD MMMM YYYY'
+                [min]='convertDate(minDate)'
+                [max]='convertDate(maxDate)'
+                [doneText]='"OK" | translate'
+                [cancelText]='"CANCEL" | translate'
+                [monthNames]='"MONTHS_NAMES" | translate'>
+              </ion-datetime>
+            </ion-item>
+            <ion-item lines='none' *ngIf='(!roadConditionForm["controls"].dates.valid || !roadConditionForm["controls"].dates["controls"].beginDate.valid) && (roadConditionForm.touched || roadConditionForm.dirty)'>
+              <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>
+              <ion-text color='danger'>
+                <div *ngIf='!!roadConditionForm["controls"].dates["controls"].beginDate.errors?.required'>{{ 'VALIDATION.REQUIRED' | translate }}</div>
+                <div *ngIf='!!roadConditionForm["controls"].dates["controls"].beginDate.errors?.dateCurrentOrPast'>{{ 'VALIDATION.DATE_CURRENT_OR_PAST' | translate }}</div>
+                <div *ngIf='!!roadConditionForm["controls"].dates.errors?.dateBeforeEndDate'>{{ 'VALIDATION.BEGIN_DATE_BEFORE_END_DATE' | translate }}</div>
+              </ion-text>
+            </ion-item>
+            <ion-item>
+              <ion-label position='floating'>{{ 'PROFILE.END_DATE' | translate }}</ion-label>
+              <ion-datetime
+                formControlName='endDate'
+                displayFormat='DD MMMM YYYY'
+                [min]='convertDate(minDate)'
+                [max]='convertDate(maxDate)'
+                [doneText]='"OK" | translate'
+                [cancelText]='"CANCEL" | translate'
+                [monthNames]='"MONTHS_NAMES" | translate'>
+              </ion-datetime>
+            </ion-item>
+            <ion-item lines='none' *ngIf='!roadConditionForm["controls"].dates["controls"].endDate.valid && (roadConditionForm.touched || roadConditionForm.dirty)'>
+              <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>
+              <ion-text color='danger'>
+                <div *ngIf='!!roadConditionForm["controls"].dates["controls"].endDate.errors?.required'>{{ 'VALIDATION.REQUIRED' | translate }}</div>
+                <div *ngIf='!!roadConditionForm["controls"].dates["controls"].endDate.errors?.dateCurrentOrPast'>{{ 'VALIDATION.DATE_CURRENT_OR_PAST' | translate }}</div>
+              </ion-text>
+            </ion-item>
+          </div>
+          <div class='ion-padding-top'>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-button type='button' expand='block' (click)='doXLSXExport()'>{{ 'PROFILE.EXPORT_XLSX' | translate }}</ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button type='button' expand='block' (click)='doCSVExport()'>{{ 'PROFILE.EXPORT_CSV' | translate }}</ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button type='button' expand='block' (click)='doJSONExport()'>{{ 'PROFILE.EXPORT_JSON' | translate }}</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </ion-list>
+      </form>
+    </div>
+    <div *ngIf='isAdmin()'>
+      <ion-list>
+        <ion-list-header>
+            {{ 'PROFILE.USER_ADMINISTRATION' | translate }}:
+        </ion-list-header>
+
+        <div class='ion-padding-top'>
+          <ion-button type='button' expand='block' routerLink='/registration'>{{ 'REGISTRATION.TITLE' | translate }}</ion-button>
+        </div>
+        
+        <div class='ion-padding-top'>
+          <ion-button type='button' expand='block' routerLink='/edit-user'>{{ 'EDIT_USER.TITLE' | translate }}</ion-button>
+        </div>
+      </ion-list>
+    </div>
+  </div>
+</ion-content>

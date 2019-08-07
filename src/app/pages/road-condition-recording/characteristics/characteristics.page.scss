@@ -1,0 +1,17 @@
+.bold {
+    font-weight: bold;
+}
+
+.overflow {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.expansionDivider {
+    border-left: 2px solid;
+    border-color: var(--ion-color-medium);
+}
+
+.margin-start-0 {
+    margin-left: 0px
+}

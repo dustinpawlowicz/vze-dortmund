@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ 'LOGIN.TITLE' | translate }}</ion-title>
+    <ion-buttons slot='end'>
+      <ion-button color='primary' routerLink='/tutorial' routerDirection='forward'>
+        {{ 'TUTORIAL.TITLE' | translate }}
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class='ion-padding'>
+    <img src='assets/img/logo.png' width='128px' height='128px' alt='Logo'/>
+    <div>
+      {{ 'APP_NAME' | translate }}
+    </div>
+  </div>
+  
+  <form [formGroup]='loginForm' class='ion-padding' (submit)='doLogin()' (keyup.enter)='doLogin()'>
+    <ion-list>
+      <div>
+        <ion-item>
+          <ion-label position='floating'>{{ 'USERNAME' | translate }}:</ion-label>
+          <ion-input type='text' formControlName='username' autofocus='true'></ion-input>
+        </ion-item>
+        <ion-item lines='none' *ngIf='!loginForm.controls.username.valid && (loginForm.touched || loginForm.dirty)'>
+          <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>
+          <ion-text color='danger'>
+            <div *ngIf='!!loginForm.controls.username.errors.required'>{{ 'VALIDATION.REQUIRED' | translate }}</div>
+          </ion-text>
+        </ion-item>
+      </div>
+      <div>
+        <ion-item>
+          <ion-label position='floating'>{{ 'PASSWORD' | translate }}:</ion-label>
+          <ion-input type='password' formControlName='password'></ion-input>
+        </ion-item>
+        <ion-item lines='none' *ngIf='!loginForm.controls.password.valid && (loginForm.touched || loginForm.dirty)'>
+          <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>
+          <ion-text color='danger'>
+            <div *ngIf='!!loginForm.controls.password.errors.required'>{{ 'VALIDATION.REQUIRED' | translate }}</div>
+          </ion-text>
+        </ion-item>
+      </div>
+      <div class='ion-padding-top'>
+        <ion-button type='submit' expand='block'>{{ 'LOGIN.BUTTON' | translate }}</ion-button>
+      </div>
+    </ion-list>
+  </form>
+</ion-content>

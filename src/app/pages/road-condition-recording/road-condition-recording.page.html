@@ -1,0 +1,18 @@
+<ion-tabs>
+  <ion-tab-bar slot='bottom'>
+    <ion-tab-button tab='basic-data'>
+      <ion-icon name='pin'></ion-icon>
+      <ion-label>{{ 'RECORDING.BASIC_DATA.TITLE' | translate }}</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab='characteristics' [disabled]='!basicDataCompleted'>
+      <ion-icon name="clipboard"></ion-icon>
+      <ion-label>{{ 'RECORDING.CHARACTERISTICS.TITLE' | translate }}</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab='comments' [disabled]='!basicDataCompleted || !characteristicsCompleted'>
+      <ion-icon name='chatboxes'></ion-icon>
+      <ion-label>{{ 'RECORDING.COMMENTS.TITLE' | translate }}</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

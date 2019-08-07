@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ 'RECORDING.CHARACTERISTICS.TITLE' | translate }}</ion-title>
+    <ion-buttons slot='end'>
+      <ion-button color='primary' (click)='cancelRecording()'>
+        {{ 'CANCEL' | translate }}
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <div>
+      <ion-list-header>
+          {{ 'RECORDING.CHARACTERISTICS.POSITION_TYPE' | translate }}:
+      </ion-list-header>
+      <ion-grid>
+        <ion-row>
+          <ion-col *ngFor='let positionType of POSITION_TYPES'>
+            <ion-button (click)='presentRecordPositionModal(positionType)' expand='block'>{{ 'RECORDING.CHARACTERISTICS.POSITION_TYPES.' + (positionType.key | uppercase) | translate }}</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div>
+      <ion-list-header>
+          {{ 'RECORDING.CHARACTERISTICS.ORDER_POSITIONS' | translate }}:
+      </ion-list-header>
+      <ion-item-sliding *ngFor='let standardOrderPosition of orderPositions.standardOrderPositions'>
+        <ion-item>
+          <ion-label>
+            <h2 class='bold overflow'>
+              {{ standardOrderPosition.conditionIndicatorProperty.key }} - {{ 'RECORDING.CHARACTERISTICS.CONDITIONS.' + (standardOrderPosition.conditionCharacteristicProperty.key | uppercase) | translate }}
+            </h2>
+            <p *ngIf='standardOrderPosition.magnitudeProperty'>
+              {{ 'RECORDING.CHARACTERISTICS.MAGNITUDES.' + (standardOrderPosition.magnitudeProperty.key | uppercase) | translate }}: {{ standardOrderPosition.magnitudeText }}
+            </p>
+            <p *ngIf='!standardOrderPosition.magnitudeProperty'>
+              -
+            </p>
+          </ion-label>
+          <ion-label class='ion-text-right bold'>
+            {{ standardOrderPosition.expansion }} m²
+          </ion-label>
+          <ion-icon slot='end' name='camera' class='ion-padding-start expansionDivider' [color]='standardOrderPosition.pictures?.length > 0 ? "success" : "danger"'></ion-icon>
+        </ion-item>
+        <ion-item-options side='end'>
+          <ion-item-option color='danger' (click)='deleteOrderPosition(standardOrderPosition)'>{{ 'CLEAR' | translate }}</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+      <ion-item-sliding *ngFor='let signageOrderPosition of orderPositions.signageOrderPosition'>
+        <ion-item>
+          <ion-label>
+            <h2 class='bold overflow'>
+              {{ signageOrderPosition.text }}
+            </h2>
+            <p>
+              {{ signageOrderPosition.count }} - {{ signageOrderPosition.sign.name }}
+            </p>
+          </ion-label>
+          <ion-item class='ion-no-padding ion-text-right bold' lines='none'>
+              <ion-thumbnail slot='start'>
+                <img src='assets/img/signs/{{ signageOrderPosition.signCategoryProperty.key | keyToFilename }}/{{ signageOrderPosition.sign.key }}.jpg' [alt]='signageOrderPosition.sign.key' onerror="this.src='assets/img/signs/default.jpg'" />
+              </ion-thumbnail>
+              {{ signageOrderPosition.sign.key }}
+          </ion-item>
+          <ion-icon slot='end' name='camera' class='ion-padding-start margin-start-0 expansionDivider' [color]='signageOrderPosition.pictures?.length > 0 ? "success" : "danger"'></ion-icon>
+        </ion-item>
+        <ion-item-options side='end'>
+          <ion-item-option color='danger' (click)='deleteOrderPosition(signageOrderPosition)'>{{ 'CLEAR' | translate }}</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+      <ion-item-sliding *ngFor='let customOrderPosition of orderPositions.customOrderPosition'>
+        <ion-item>
+          <ion-label>
+            <h2 class='bold overflow'>
+              {{ customOrderPosition.text }}
+            </h2>
+            <p>
+              {{ customOrderPosition.count }}
+            </p>
+          </ion-label>
+          <ion-label class='ion-text-right bold'>
+          </ion-label>
+          <ion-icon slot='end' name='camera' class='ion-padding-start expansionDivider' [color]='customOrderPosition.pictures?.length > 0 ? "success" : "danger"'></ion-icon>
+        </ion-item>
+        <ion-item-options side='end'>
+          <ion-item-option color='danger' (click)='deleteOrderPosition(customOrderPosition)'>{{ 'CLEAR' | translate }}</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </div>
+  </ion-list>
+  <ion-fab horizontal='end' vertical='bottom' slot='fixed'>
+    <ion-fab-button routerLink='/recording/comments' routerDirection='forward' [disabled]='!characteristicsValid' color='tertiary'>
+      <ion-icon name='arrow-forward'></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

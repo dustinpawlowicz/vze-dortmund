@@ -1,0 +1,129 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ 'RECORDING.CHARACTERISTICS.POSITION_TYPES.SIGNAGE' | translate }}</ion-title>
+    <ion-buttons slot='end'>
+      <ion-button color='primary' (click)='cancelOrder()'>{{ 'CANCEL' | translate }}</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]='signageOrderPositionForm' class='ion-padding' (submit)='submitOrder()' (keyup.enter)='submitOrder()'>
+    <ion-list>
+      <div>
+        <ion-item>
+          <ion-label position='floating'>{{ 'RECORDING.CHARACTERISTICS.COUNT' | translate }}:</ion-label>
+          <ion-input type='number' formControlName='count'></ion-input>
+        </ion-item>
+        <ion-item lines='none' *ngIf='!signageOrderPositionForm.controls.count.valid && (signageOrderPositionForm.touched || signageOrderPositionForm.dirty)'>
+          <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>
+          <ion-text color='danger'>
+            <div *ngIf='!!signageOrderPositionForm.controls.count.errors.required'>{{ 'VALIDATION.REQUIRED' | translate }}</div>
+            <div *ngIf='!!signageOrderPositionForm.controls.count.errors.pattern'>{{ 'VALIDATION.PATTERN' | translate }}</div>
+            <div *ngIf='!!signageOrderPositionForm.controls.count.errors.min' translate [translateParams]='{ "min": 1 }'>
+              VALIDATION.MIN
+            </div>
+          </ion-text>
+        </ion-item> 
+      </div>
+      <div>
+        <ion-item>
+          <ion-label position='floating'>{{ 'RECORDING.CHARACTERISTICS.POSITION_TYPES.CUSTOM' | translate }}:</ion-label>
+          <ion-input type='text' formControlName='text'></ion-input>
+        </ion-item>
+        <ion-item lines='none' *ngIf='!signageOrderPositionForm.controls.text.valid && (signageOrderPositionForm.touched || signageOrderPositionForm.dirty)'>
+          <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>
+          <ion-text color='danger'>
+            <div *ngIf='!!signageOrderPositionForm.controls.text.errors.required'>{{ 'VALIDATION.REQUIRED' | translate }}</div>
+          </ion-text>
+        </ion-item> 
+      </div>
+      <div>
+        <ion-radio-group formControlName='signCategory'>
+          <ion-list-header>
+              {{ 'RECORDING.CHARACTERISTICS.SIGNAGE_CATEGORY' | translate }}:
+          </ion-list-header>
+          <ion-grid>
+            <ion-row>
+              <ion-col *ngFor='let signCategory of signCategories'>
+                <ion-item>
+                  <ion-label>{{ 'RECORDING.CHARACTERISTICS.SIGNS.' + (signCategory.key | uppercase) | translate }}</ion-label>
+                  <ion-radio [value]='signCategory'></ion-radio>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-radio-group>
+        <ion-item lines='none' *ngIf='!signageOrderPositionForm.controls.signCategory.valid && (signageOrderPositionForm.touched || signageOrderPositionForm.dirty)'>
+          <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>
+          <ion-text color='danger'>
+            <div *ngIf='!!signageOrderPositionForm.controls.signCategory.errors.required'>{{ 'VALIDATION.REQUIRED' | translate }}</div>
+          </ion-text>
+        </ion-item> 
+      </div>
+      <div *ngIf='selectedSignCategory'>
+        <ion-radio-group formControlName='sign'>
+          <ion-list-header>
+              {{ 'RECORDING.CHARACTERISTICS.SIGNS.' + (selectedSignCategory.key | uppercase ) | translate }}:
+          </ion-list-header>
+          <ion-grid>
+            <ion-row *ngFor='let sign of selectedSignCategory.sign'>
+              <ion-col>
+                <ion-item>
+                  <ion-label>
+                    <h2 class='overflow'>
+                      {{ sign.key }}
+                    </h2>
+                    <p>
+                      {{ sign.name }}
+                    </p>
+                  </ion-label>
+                  <ion-thumbnail slot='start'>
+                      <img src='assets/img/signs/{{ selectedSignCategory.key | keyToFilename }}/{{ sign.key }}.jpg' [alt]='sign.key' onerror="this.src='assets/img/signs/default.jpg'" />
+                  </ion-thumbnail>
+                  <ion-radio [value]='sign'></ion-radio>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-radio-group>
+        <ion-item lines='none' *ngIf='!signageOrderPositionForm.controls.sign.valid && (signageOrderPositionForm.touched || signageOrderPositionForm.dirty)'>
+          <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>
+          <ion-text color='danger'>
+            <div *ngIf='!!signageOrderPositionForm.controls.sign.errors.required'>{{ 'VALIDATION.REQUIRED' | translate }}</div>
+          </ion-text>
+        </ion-item> 
+      </div>
+      <div>
+        <ion-item-sliding *ngFor='let picture of pictures'>
+          <ion-item>
+            <ion-thumbnail slot='start'>
+              <ion-img [src]='picture.dataUrl' [alt]='picture.filename'></ion-img>
+            </ion-thumbnail>
+            <ion-label>
+              <h2>
+                  {{picture.filename}}
+              </h2>
+              <p>
+                  {{picture.path}}
+              </p>
+            </ion-label>
+          </ion-item>
+          <ion-item-options side='end'>
+            <ion-item-option color='danger' (click)='removePicture(picture)'>{{ 'CLEAR' | translate }}</ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </div>
+      <div class='ion-padding-top'>
+        <ion-button (click)='addPicture()' type='button' expand='block'>
+          <ion-icon slot='start' name='camera'></ion-icon>
+          {{ 'RECORDING.CHARACTERISTICS.ADD_PICTURE' | translate }}
+        </ion-button>
+      </div>
+      <div class='ion-padding-top'>
+        <ion-button type='submit' expand='block'>{{ 'RECORDING.CHARACTERISTICS.ADD_ORDER_POSITION' | translate }}</ion-button>
+      </div>
+    </ion-list>
+  </form>
+</ion-content>
+  

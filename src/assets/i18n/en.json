@@ -1,0 +1,274 @@
+{
+    "APP_NAME": "VZE Dortmund",
+    "OK": "Ok",
+    "CANCEL": "Cancel",
+    "CLEAR": "Clear",
+    "EDIT": "Edit",
+    "SELECT_ONE": "Select one",
+    "ADMIN_CONFIRM": "Confirm admin request!",
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    "FIRST_NAME": "First name",
+    "LAST_NAME": "Last name",
+    "ROLE": "User role",
+    "DEACTIVATED_UNTIL": "Deactivated until",
+    "USER_INFORMATION": "User information",
+    "MONTHS_NAMES": "January, February, March, April, May, June, July, August, September, October, November, December",
+
+    "TUTORIAL": {
+        "TITLE": "Tutorial",
+        "SKIP_BUTTON": "Skip",
+        "CONTINUE_BUTTON": "Continue",
+
+        "SLIDE1_TITLE": "Title 1",
+        "SLIDE1_DESCRIPTION": "Track your location and select a street edge to begin the visual registering of a road condition.",
+
+        "SLIDE2_TITLE": "Basic data - Registration of road conditions",
+        "SLIDE2_DESCRIPTION": "Fill in the basic data and then continue with the road condition characteristics.",
+
+        "SLIDE3_TITLE": "Characteristics - Registration of road conditions",
+        "SLIDE3_DESCRIPTION": "Choose \"Standard\", \"Signage\" or \"Free text\" from the position types and add at least one condition characteristic.",
+
+        "SLIDE4_TITLE": "Comments - Registration of road conditions",
+        "SLIDE4_DESCRIPTION": "You can optionally add comments and end the registration by clicking on the \"Save\" button. Note: The saved data can be exported under \"Profile\"."
+    },
+
+    "LOGIN": {
+        "TITLE": "Login",     
+        "BUTTON": "Log In"
+    },
+
+    "RECORDING": {
+        "BASIC_DATA": {
+            "TITLE": "Basic data",
+            "LOCATION": "Location",
+            "ROAD_NAME": "Road name",
+            "HOUSE_NUMBER_SECTION_LEFT": "House numbers (left)",
+            "HOUSE_NUMBER_SECTION_RIGHT": "House numbers (right)",
+            "HOUSE_NUMBER": "house number",
+            "ADDRESS_ADDITION": "Address addition",
+            "PRIORITY": "Priority",
+            "DEPARTMENT": "Department",
+            "SURFACE": "Function surface",
+            "SHORT_TEXT": "Short text",
+            "LONG_TEXT": "Long text",
+            "DETECTION_DATE": "Date of discovery",
+
+            "PRIORITIES": {
+                "DANGER": "Danger point",
+                "DISTURBANCE": "Disturbance point",
+                "OTHER": "Other defects"
+            },
+            "DEPARTMENTS": {
+                "AV": "Tiefbaubezirk AV",
+                "BZM": "Tiefbaubezirk BZM",
+                "SIGNAGE": "Signage",
+                "MARK": "Mark",
+                "WASTEWATER": "Wastewater operation",
+                "GREEN": "Green area department"
+            },
+
+            "SURFACES": {
+                "CARRIAGEWAY": "Carriageway",
+                "FOOTPATH": "Footpath",
+                "SIDEWALK": "Sidewalk",
+                "GREEN": "Green verge",
+                "PARKING": "Parking strips",
+                "PLACE": "Places",
+                "CYCLEWAY": "Cycleway",
+                "STAIRWAY": "Stairways",
+                "OTHER": "Other areas"
+            }
+        },
+
+        "CHARACTERISTICS": {
+            "TITLE": "Characteristics",
+            "POSITION_TYPE": "Position type",
+            "GROUP": "Characteristics group",
+            "CONDITION": "Condition characteristic",
+            "CONDITION_MAGNITUDE": "Condition magnitude",
+            "EXPANSE": "Expanse",
+            "MAGNITUDE": "Magnitude",
+            "ORDER_POSITIONS": "Order positions",
+            "ADD_ORDER_POSITION": "Add order position",
+            "ADD_PICTURE": "Take a picture",
+            "COUNT": "Count",
+            "SIGNAGE_CATEGORY": "Signage category",
+
+            "POSITION_TYPES": {
+                "STANDARD": "Standard",
+                "SIGNAGE": "Signage",
+                "CUSTOM": "Custom text"
+            },
+
+            "GROUPS": {
+                "FLATNESS": "Flatness",
+                "SUBSTANCE_ASPHALT": "Substance characteristics (surface), asphalt",
+                "SUBSTANCE_PAVEMENT_AND_SLABS": "Substance characteristics (surface), pavement and slabs",
+                "EDGING_DAMAGE": "Damage to edgings",
+                "DRAINAGE_FACILITY_DAMAGE": "Damage to drainage facilities"
+            },
+
+            "CONDITIONS": {
+                "GENERAL_UNEVENNESS": "General unevenness",
+                "TRANSVERSE_UNEVENNESS": "Transverse unevenness",
+                "CRACK": "Cracks",
+                "MENDING_SPOT_ASPHALT": "Mending spots",
+                "OTHER_SURFACE_DAMAGE": "Other surface damage",
+                "OPEN_SEAM_AND_JOINT": "Open seams and joints",
+                "OPEN_PAVEMENT_JOINT_AND_SLAB_JOINT": "Open pavement joints and slab joints",
+                "FRACTURE": "Fracture",
+                "LOOSENED_STRUCTURE": "Loosened structure, bearing damage",
+                "STRUCTURE_RESOLUTION": "Structure resolution",
+                "MENDING_SPOT_PAVEMENT_SLAB": "Mending spots",
+                "EDGE": "Edge: canting, deformation, spalling, chipping and fracturing",
+                "DRAIN": "Street drain: Altitude, defects and disturbed water flow",
+                "GUTTER": "Gutter: Altitude, defects and disturbed water flow"
+            },
+
+            "MAGNITUDES": {
+                "WEAK": "Weak",
+                "DISTINCT": "Distinct",
+                "STRONG": "Strong"
+            },
+
+            "SIGNS": {
+                "DANGER": "Danger signs",
+                "DIRECTIONAL": "Directional signs",
+                "REGULATORY": "Regulatory signs",
+                "TRAFFIC_CONTROL_PANELS": "Traffic control panels",
+                "TRAFFIC_FACILITIES": "Traffic facilities",
+                "ADDITIONAL": "Additional signs"
+            }
+        },
+
+        "COMMENTS": {
+            "TITLE": "Comments",
+            "COMMENT": "Comment",
+            "ADD_COMMENT": "Add comment"
+        }
+    },
+
+    "REGISTRATION": {
+        "TITLE": "Registration",    
+        "BUTTON": "Register"
+    },
+
+    "CHANGE_PASSWORD": {
+        "TITLE": "Change password",
+        "NEW_PASSWORD": "New Password",
+        "BUTTON": "Save change"
+    },
+
+    "EDIT_USER": {
+        "TITLE": "Edit user",
+        "USERS": "Users",
+        "CONFIRM": "Confirm",
+        "BUTTON": "Save changes",
+        "DELETE_BUTTON": "Delete User",
+        "SELECT_USER_HINT": "User to edit"
+    },
+
+    "HOME": {
+        "TITLE": "Home"
+    },
+
+    "ROAD_NETWORK": {
+        "TITLE": "Road network",
+        "SEARCH": "Address search",
+
+        "COLORED_MAP": "Colored",
+        "GREY_MAP": "Grey",
+        "AERIAL_Map": "Aerial view",
+
+        "ROAD_NUMBER": "Road number",
+        "ROAD_NAME": "Road name",
+        "ROAD_LENGTH": "Road length",
+        "SECTION_NUMBER": "Section",
+        "HOUSE_NUMBER_SECTION_LEFT": "House numbers (left)",
+        "HOUSE_NUMBER_SECTION_RIGHT": "House numbers (right)",
+        "FROM_NODE_KEY": "From node key",
+        "TO_NODE_KEY": "To node key",
+        "LOCATION": "Location"
+    },
+
+    "PROFILE": {
+        "TITLE": "Profile",
+        "LOGOUT": "Log Out",
+        "USER_ADMINISTRATION": "User administration",
+        "ROAD_CONDITION_REGISTRATIONS": "Road condition registrations",
+        "NUMBER_OF_RECORDINGS_TOTAL": "Number (total):",
+        "NUMBER_OF_RECORDINGS_SELECTED_RANGE": "Number (selected range):",
+        "STARTING_DATE": "Starting date",
+        "END_DATE": "End date",
+        "EXPORT_XLSX": "Export as Excel",
+        "EXPORT_CSV": "Export as CSV",
+        "EXPORT_JSON": "Export as JSON"
+    },
+
+    "SETTINGS": {
+        "TITLE": "Settings",
+        "GENERAL": "General",
+        "DISPLAY_NODES": "Display street nodes",
+        "LANGUAGE": "Language"
+    },
+
+    "MESSAGE": {
+        "SUCCESS": {
+            "USER_REQUESTED": "User '{{username}}' successfully logged in.",
+            "USER_CREATED": "User '{{username}}' has been successfully registered.",
+            "PASSWORD_CHANGED": "Your password has been successfully changed. Please log in with your new password.",
+            "USER_EDITED": "The changes made to user '{{username}}' were successful.",
+            "USER_DELETED": "The user '{{username}}' was successfully deleted.",
+            "ROLES_REQUESTED": "The active user roles were successfully requested.",
+            "USERS_REQUESTED": "The users were successfully requested.",
+            "NODES_REQUESTED": "The road network nodes have been updated successfully.",
+            "EDGES_REQUESTED": "The road network edges have been updated successfully.",
+            "CHARACTERISTICS_REQUESTED": "The active characteristics were successfully requested.",
+            "SIGNS_REQUESTED": "The active signs were successfully requested.",
+            "PRIORITIES_REQUESTED": "The active priorities were successfully requested.",
+            "DEPARTEMENTS_REQUESTED": "The active departements were successfully requested.",
+            "SURFACES_REQUESTED": "The active surfaces were successfully requested.",
+            "COMMENTS_REQUESTED": "The active comments were successfully requested.",
+            "WATCH_POSITION": "Location check activated.",
+            "ROAD_CONDITION_REGISTERED": "Road condition successfully registered."
+        },
+
+        "ERROR": {
+            "UNKNOWN": "An unknown error has occurred.",
+            "INCOMPLETE_DATA": "The input is incomplete! Please enter all required data.",
+            "INCORRECT_DATA": "The input is incorrect! Please check your data.",
+            "SQL_QUERY_FAILED": "The database query failed. Please contact an admin.",
+            "MODULE_OPERATION_FAILED": "An external server module could not complete the request.",
+            "INSUFFICIENT_ACCESS_RIGHTS": "You do not have the necessary access rights. Please use an authorized account.",
+            "USER_DEACTIVATED": "The user is deactivated until '{{date}}'.",
+            "NOT_RESPONDING": "The server is not responding. Please try again later or contact an admin.",
+            "UNAUTHORIZED_ACCESS": "Page access denied. Use an authorized account.",
+            "WATCH_POSITION": "Location check failed. Please check your location settings.",
+            "POSITION_OUT_OF_MAP": "You are outside the map area! Location check canceled.",
+            "INCOMPLETE_PAGE_DATA": "The requested page is missing data. Please contact an admin.",
+            "FETCH_DATA": "The required data could not be fetched.",
+            "FETCHED_DATA_INCOMPLETE": "Fetched data incomplete. The action can still be performed without problems.",
+            "CAMERA_NOT_ACCESSIBLE": "Camera access not possible. Make sure your device has a camera.",
+            "PERMISSION_REQUIRED": "Permission is required."
+        }
+    },
+
+    "VALIDATION": {
+        "REQUIRED": "Required entry.",
+        "PATTERN": "Invalid input pattern.",
+        "MIN_LENGTH": "The minimum length is {{minLength}} characters.",
+        "MAX_LENGTH": "The maximum length is {{maxLength}} characters.",
+        "RANGE": "Must be within the range of {{min}}-{{max}}.",
+        "DATE_CURRENT_OR_PAST": "Must be a valid date that is not in the future.",
+        "DATE_CURRENT_OR_FUTURE": "Must be a valid date that is not in the past.",
+        "BEGIN_DATE_BEFORE_END_DATE": "Must be earlier than the end date.",
+        "MIN": "The minimum value is {{min}}.",
+        "UNIQUE": "The input already exists."
+    },
+
+    "TOAST": {
+        "GOT_IT": "Got it",
+        "OK": "Ok"
+    }  
+}

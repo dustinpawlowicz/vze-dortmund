@@ -1,0 +1,122 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ 'EDIT_USER.TITLE' | translate }}</ion-title>
+    <ion-buttons slot='start'>
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+  
+<ion-content>
+  <form [formGroup]='adminConfirmForm' class='ion-padding' (submit)='fetchUsers()' (keyup.enter)='fetchUsers()' *ngIf='!users'>
+    <ion-list>
+        <ion-list-header>
+            {{ 'ADMIN_CONFIRM' | translate }}
+        </ion-list-header>
+        <div>
+          <ion-item>
+            <ion-label position='floating'>{{ 'USERNAME' | translate }}:</ion-label>
+            <ion-input formControlName='adminUsername' type='text'></ion-input>
+          </ion-item>
+        </div>
+        <div>
+          <ion-item>
+            <ion-label position='floating'>{{ 'PASSWORD' | translate }}:</ion-label>
+            <ion-input formControlName='adminPassword' type='password'></ion-input>
+          </ion-item>
+          <ion-item lines='none' *ngIf='!adminConfirmForm.controls.adminPassword.valid && (adminConfirmForm.touched || adminConfirmForm.dirty)'>
+            <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>
+            <ion-text color='danger'>
+              <div *ngIf='!!adminConfirmForm.controls.adminPassword.errors.required'>{{ 'VALIDATION.REQUIRED' | translate }}</div>
+            </ion-text>
+          </ion-item>
+        </div>
+        <div class='ion-padding-top'>
+          <ion-button type='submit' expand='block'>{{ 'EDIT_USER.CONFIRM' | translate }}</ion-button>
+        </div>
+    </ion-list>
+  </form>
+
+  <form [formGroup]='editUserForm' class='ion-padding' (submit)='doEdit()' (keyup.enter)='doEdit()' *ngIf='roles && users'>
+    <ion-list>
+      <ion-list-header>
+          {{ 'EDIT_USER.SELECT_USER_HINT' | translate }}:
+      </ion-list-header>
+      <div>
+        <ion-item>
+          <ion-label position='floating'>{{ 'EDIT_USER.USERS' | translate }}:</ion-label>
+          <ion-select formControlName='username' (ionChange)='doSelectUser()' [okText]='"OK" | translate' [cancelText]='"CANCEL" | translate' [placeholder]='"SELECT_ONE" | translate'>
+            <ion-select-option *ngFor='let user of users'>{{user.username}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </div>
+      <div *ngIf='selectedUser'>
+        <ion-list-header>
+            {{ 'USER_INFORMATION' | translate }}:
+        </ion-list-header>
+        <div>
+          <ion-item>
+            <ion-label position='floating'>{{ 'FIRST_NAME' | translate }}:</ion-label>
+            <ion-input formControlName='firstName' type='text'></ion-input>
+          </ion-item>
+        </div>
+        <div>
+          <ion-item>
+            <ion-label position='floating'>{{ 'LAST_NAME' | translate }}:</ion-label>
+            <ion-input formControlName='lastName' type='text'></ion-input>
+          </ion-item>
+        </div>
+        <div>
+          <ion-item>
+            <ion-label position='floating'>{{ 'PASSWORD' | translate }}:</ion-label>
+            <ion-input formControlName='password' type='password'></ion-input>
+          </ion-item>
+          <ion-item lines='none' *ngIf='!editUserForm.controls.password.valid && (editUserForm.touched || editUserForm.dirty)'>
+            <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>
+            <ion-text color='danger'>
+              <div *ngIf='!!editUserForm.controls.password.errors.minlength' translate [translateParams]='{ "minLength": MIN_PASSWORD_LENGTH }'>
+                VALIDATION.MIN_LENGTH
+              </div>
+            </ion-text>
+          </ion-item>
+        </div>
+        <div>
+          <ion-item>
+            <ion-label position='floating'>{{ 'ROLE' | translate }}:</ion-label>
+            <ion-select formControlName='roleName' class='capitalize' [okText]='"OK" | translate' [cancelText]='"CANCEL" | translate'>
+              <ion-select-option *ngFor='let role of roles'>{{role.name}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+        <div>
+          <ion-item >
+              <ion-label position='floating'>{{ 'DEACTIVATED_UNTIL' | translate }}</ion-label>
+              <ion-datetime
+                (ionCancel)='clearDeactivationDate()'
+                formControlName='deactivatedUntil'
+                name='deactivatedUntil'
+                displayFormat='DD MMMM YYYY, HH:mm'
+                placeholder='-'
+                [min]='convertDate(minDeactivationDate)'
+                [max]='convertDate(maxDeactivationDate)'
+                [doneText]='"OK" | translate'
+                [cancelText]='"CLEAR" | translate'
+                [monthNames]='"MONTHS_NAMES" | translate'></ion-datetime>
+          </ion-item>
+          <ion-item lines='none' *ngIf='!editUserForm.controls.deactivatedUntil.valid && (editUserForm.touched || editUserForm.dirty)'>
+              <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>
+              <ion-text color='danger'>
+                <div *ngIf='!!editUserForm.controls.deactivatedUntil.errors.dateCurrentOrPast'>{{ 'VALIDATION.DATE_CURRENT_OR_FUTURE' | translate }}</div>
+              </ion-text>
+            </ion-item>
+        </div>
+        <div class='ion-padding-top'>
+          <ion-button type='submit' expand='block'>{{ 'EDIT_USER.BUTTON' | translate }}</ion-button>
+        </div>
+        <div class='ion-padding-top'>
+          <ion-button type='button' expand='block' color='danger' (click)='doDelete()'>{{ 'EDIT_USER.DELETE_BUTTON' | translate }}</ion-button>
+        </div>
+      </div>
+    </ion-list>
+  </form>
+</ion-content>

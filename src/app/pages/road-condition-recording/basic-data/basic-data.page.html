@@ -1,0 +1,209 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ 'RECORDING.BASIC_DATA.TITLE' | translate }}</ion-title>
+    <ion-buttons slot='end'>
+      <ion-button color='primary' (click)='cancelRecording()'>
+        {{ 'CANCEL' | translate }}
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]='basicDataForm' class='ion-padding'>
+    <ion-list>
+      <div>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label position='floating'>{{ 'RECORDING.BASIC_DATA.LOCATION' | translate }}:</ion-label>
+                <ion-input type='text' formControlName='location'></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-label position='floating'>{{ 'RECORDING.BASIC_DATA.ROAD_NAME' | translate }}:</ion-label>
+                <ion-input type='text' formControlName='roadName'></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label position='floating'>{{ 'RECORDING.BASIC_DATA.HOUSE_NUMBER_SECTION_LEFT' | translate }}:</ion-label>
+                <ion-input type='text' formControlName='houseNumberSectionLeft'></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-label position='floating'>{{ 'RECORDING.BASIC_DATA.HOUSE_NUMBER_SECTION_RIGHT' | translate }}:</ion-label>
+                <ion-input type='text' formControlName='houseNumberSectionRight'></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label position='floating'>{{ 'RECORDING.BASIC_DATA.HOUSE_NUMBER' | translate }}:</ion-label>
+                <ion-input type='number' formControlName='houseNumber'></ion-input>
+              </ion-item>
+              <ion-item lines='none' *ngIf='!basicDataForm.controls.houseNumber.valid && (basicDataForm.touched || basicDataForm.dirty)'>
+                <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>
+                <ion-text color='danger'>
+                  <div *ngIf='!!basicDataForm.controls.houseNumber.errors.required'>{{ 'VALIDATION.REQUIRED' | translate }}</div>
+                  <div *ngIf='!!basicDataForm.controls.houseNumber.errors.pattern'>{{ 'VALIDATION.PATTERN' | translate }}</div>
+                  <div *ngIf='!!basicDataForm.controls.houseNumber.errors.min || !!basicDataForm.controls.houseNumber.errors.max'
+                    translate [translateParams]='{ "min": minHouseNumber, "max": maxHouseNumber }'>
+                      VALIDATION.RANGE
+                  </div>
+                </ion-text>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-label position='floating'>{{ 'RECORDING.BASIC_DATA.ADDRESS_ADDITION' | translate }}:</ion-label>
+                <ion-input type='text' formControlName='addressAddition'></ion-input>
+              </ion-item>
+              <ion-item lines='none' *ngIf='!basicDataForm.controls.addressAddition.valid && (basicDataForm.touched || basicDataForm.dirty)'>
+                <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>
+                <ion-text color='danger'>
+                  <div *ngIf='!!basicDataForm.controls.addressAddition.errors.maxlength'
+                    translate [translateParams]='{ "maxLength": MAX_LENGTH_ADDRESS_ADDITION }'>
+                      VALIDATION.MAX_LENGTH
+                  </div>
+                </ion-text>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+      <div>
+        <ion-radio-group formControlName='priority'>
+          <ion-list-header>
+              {{ 'RECORDING.BASIC_DATA.PRIORITY' | translate }}:
+          </ion-list-header>
+          <ion-grid>
+            <ion-row>
+              <ion-col *ngFor="let priority of priorities">
+                <ion-item>
+                  <ion-label>{{ 'RECORDING.BASIC_DATA.PRIORITIES.' + (priority.key | uppercase) | translate }}</ion-label>
+                  <ion-radio [value]="priority"></ion-radio>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-radio-group>
+        <ion-item lines='none' *ngIf='!basicDataForm.controls.priority.valid && (basicDataForm.touched || basicDataForm.dirty)'>
+          <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>
+          <ion-text color='danger'>
+            <div *ngIf='!!basicDataForm.controls.priority.errors.required'>{{ 'VALIDATION.REQUIRED' | translate }}</div>
+          </ion-text>
+        </ion-item>   
+      </div>
+      <div>
+        <ion-radio-group formControlName='departement'>
+          <ion-list-header>
+            {{ 'RECORDING.BASIC_DATA.DEPARTMENT' | translate }}:
+          </ion-list-header>
+          <ion-grid>
+            <ion-row>
+              <ion-col *ngFor="let departement of departements">
+                <ion-item>
+                  <ion-label>{{ 'RECORDING.BASIC_DATA.DEPARTMENTS.' + (departement.key | uppercase) | translate }}</ion-label>
+                  <ion-radio [value]="departement"></ion-radio>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-radio-group>    
+        <ion-item lines='none' *ngIf='!basicDataForm.controls.departement.valid && (basicDataForm.touched || basicDataForm.dirty)'>
+          <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>
+          <ion-text color='danger'>
+            <div *ngIf='!!basicDataForm.controls.departement.errors.required'>{{ 'VALIDATION.REQUIRED' | translate }}</div>
+          </ion-text>
+        </ion-item>  
+      </div>
+      <div>
+        <ion-radio-group formControlName='surface'>
+          <ion-list-header>
+            {{ 'RECORDING.BASIC_DATA.SURFACE' | translate }}:
+          </ion-list-header>
+          <ion-grid>
+            <ion-row>
+              <ion-col *ngFor="let surface of surfaces">
+                <ion-item>
+                  <ion-label>{{ 'RECORDING.BASIC_DATA.SURFACES.' + (surface.key | uppercase) | translate }}</ion-label>
+                  <ion-radio [value]="surface"></ion-radio>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-radio-group>   
+        <ion-item lines='none' *ngIf='!basicDataForm.controls.surface.valid && (basicDataForm.touched || basicDataForm.dirty)'>
+          <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>
+          <ion-text color='danger'>
+            <div *ngIf='!!basicDataForm.controls.surface.errors.required'>{{ 'VALIDATION.REQUIRED' | translate }}</div>
+          </ion-text>
+        </ion-item>   
+      </div>
+      <div>
+        <ion-item>
+          <ion-label position='floating'>{{ 'RECORDING.BASIC_DATA.SHORT_TEXT' | translate }}:</ion-label>
+          <ion-input type='text' formControlName='shortText'></ion-input>
+        </ion-item>
+        <ion-item lines='none' *ngIf='!basicDataForm.controls.shortText.valid && (basicDataForm.touched || basicDataForm.dirty)'>
+          <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>
+          <ion-text color='danger'>
+            <div *ngIf='!!basicDataForm.controls.shortText.errors.required'>{{ 'VALIDATION.REQUIRED' | translate }}</div>
+            <div *ngIf='!!basicDataForm.controls.shortText.errors.maxlength'
+              translate [translateParams]='{ "maxLength": MAX_LENGTH_SHORT_TEXT }'>
+                VALIDATION.MAX_LENGTH
+            </div>
+          </ion-text>
+        </ion-item>
+      </div>
+      <div>
+        <ion-item>
+          <ion-label position='floating'>{{ 'RECORDING.BASIC_DATA.LONG_TEXT' | translate }}:</ion-label>
+          <ion-textarea type='text' formControlName='longText' autoGrow></ion-textarea>
+        </ion-item>
+        <ion-item lines='none' *ngIf='!basicDataForm.controls.longText.valid && (basicDataForm.touched || basicDataForm.dirty)'>
+          <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>
+          <ion-text color='danger'>
+            <div *ngIf='!!basicDataForm.controls.longText.errors.maxlength'
+              translate [translateParams]='{ "maxLength": MAX_LENGTH_LONG_TEXT }'>
+                VALIDATION.MAX_LENGTH
+            </div>
+          </ion-text>
+        </ion-item>
+      </div>
+      <div>
+        <ion-item>
+          <ion-label position='floating'>{{ 'RECORDING.BASIC_DATA.DETECTION_DATE' | translate }}</ion-label>
+          <ion-datetime
+            formControlName='detectionDate'
+            displayFormat='DD MMMM YYYY'
+            [min]='convertDate(minDetectionDate)'
+            [max]='convertDate(maxDetectionDate)'
+            [doneText]='"OK" | translate'
+            [cancelText]='"CANCEL" | translate'
+            [monthNames]='"MONTHS_NAMES" | translate'>
+          </ion-datetime>
+        </ion-item>
+        <ion-item lines='none' *ngIf='!basicDataForm.controls.detectionDate.valid && (basicDataForm.touched || basicDataForm.dirty)'>
+          <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>
+          <ion-text color='danger'>
+            <div *ngIf='!!basicDataForm.controls.detectionDate.errors.required'>{{ 'VALIDATION.REQUIRED' | translate }}</div>
+            <div *ngIf='!!basicDataForm.controls.detectionDate.errors.dateCurrentOrPast'>{{ 'VALIDATION.DATE_CURRENT_OR_PAST' | translate }}</div>
+          </ion-text>
+        </ion-item>
+      </div>
+    </ion-list>
+  </form>
+  <ion-fab horizontal='end' vertical='bottom' slot='fixed'>
+    <ion-fab-button routerLink='/recording/characteristics' routerDirection='forward' [disabled]='!basicDataForm.valid' color='tertiary'>
+      <ion-icon name='arrow-forward'></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

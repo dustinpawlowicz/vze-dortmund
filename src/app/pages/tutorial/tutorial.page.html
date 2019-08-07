@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ 'TUTORIAL.TITLE' | translate }}</ion-title>
+    <ion-buttons slot='end'>
+      <ion-button color='primary' routerLink='/login' routerDirection='forward' *ngIf='!isLastSlide'>
+        {{ 'TUTORIAL.SKIP_BUTTON' | translate }}
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides #slides pager='true' [options]='slideOpts' (ionSlidesDidLoad)='checkForSlidesEnd()' (ionSlideWillChange)='checkForSlidesEnd()'>
+    <ion-slide *ngFor='let slide of tutorialSlides'>
+      <div>
+        <div>
+          <img [src]='slide.image' class='slide-image'/>
+          <ion-label>
+            <h2 [innerHTML]='slide.title'></h2>
+            <p [innerHTML]='slide.description'></p>
+          </ion-label>
+        </div>
+        <div class='ion-padding-top' *ngIf='isLastSlide'>
+          <ion-button routerLink='/login' routerDirection='root'>
+            {{ 'TUTORIAL.CONTINUE_BUTTON' | translate }}
+            <ion-icon name='arrow-forward'></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

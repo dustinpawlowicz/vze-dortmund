@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ 'SETTINGS.TITLE' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form class='ion-padding' [formGroup]='settingsForm' *ngIf='settingsReady'>
+    <ion-list>
+      <div>
+        <ion-list-header>
+            {{ 'SETTINGS.GENERAL' | translate }}:
+        </ion-list-header>
+        <ion-item>
+          <ion-label position='floating'>{{ 'SETTINGS.LANGUAGE' | translate }}:</ion-label>
+          <ion-select formControlName='language' [okText]='"OK" | translate' [cancelText]='"CANCEL" | translate'>
+            <ion-select-option *ngFor='let language of AVAILABE_LANGUAGES' [value]='language.key'>{{ language.key | uppercase }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </div>
+      <div>
+        <ion-list-header>
+          {{ 'ROAD_NETWORK.TITLE' | translate }}
+        </ion-list-header>
+        <ion-item>
+          <ion-label>{{ 'SETTINGS.DISPLAY_NODES' | translate }}</ion-label>
+          <ion-toggle slot="end" formControlName='displayNodes'></ion-toggle>
+        </ion-item>
+      </div>
+    </ion-list>
+  </form>
+</ion-content>

@@ -1,0 +1,274 @@
+{
+    "APP_NAME": "VZE Dortmund",
+    "OK": "Ok",
+    "CANCEL": "Abbrechen",
+    "CLEAR": "Löschen",
+    "EDIT": "Bearbeiten",
+    "SELECT_ONE": "Bitte auswählen",
+    "ADMIN_CONFIRM": "Adminanfrage bestätigen!",
+    "USERNAME": "Benutzername",
+    "PASSWORD": "Passwort",
+    "FIRST_NAME": "Vorname",
+    "LAST_NAME": "Nachname",
+    "ROLE": "Benutzerrolle",
+    "DEACTIVATED_UNTIL": "Deaktiviert bis zum",
+    "USER_INFORMATION": "Benutzerinformationen",
+    "MONTHS_NAMES": "Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember",
+
+    "TUTORIAL": {
+        "TITLE": "Tutorial",
+        "SKIP_BUTTON": "Überspringen",
+        "CONTINUE_BUTTON": "Fortfahren",
+    
+        "SLIDE1_TITLE": "Startseite",
+        "SLIDE1_DESCRIPTION": "Ermitteln Sie Ihren Standort und wählen Sie eine Straßenkante, um mit der visuellen Erfassung von Straßenzuständen zu beginnen.",
+    
+        "SLIDE2_TITLE": "Grunddaten - Straßenzustandserfassung",
+        "SLIDE2_DESCRIPTION": "Füllen Sie die Grunddaten aus und fahren Sie dann mit den Straßenzustandsmerkmalen fort.",
+    
+        "SLIDE3_TITLE": "Zustandsmerkmale - Straßenzustandserfassung",
+        "SLIDE3_DESCRIPTION": "Wählen Sie aus den Positiosarten \"Standard\", \"Beschilderung\" oder \"Freitext\" und fügen Sie mindestens ein Zustandsmerkmal hinzu.",
+    
+        "SLIDE4_TITLE": "Bemerkungen - Straßenzustandserfassung",
+        "SLIDE4_DESCRIPTION": "Fügen Sie optional Bemerkungen hinzu und beenden Sie die Erfassung mit einem Klick auf den \"Speichern\" Button. Hinweis: Die gepeicherten Daten können unter \"Profil\" exportiert werden."
+    },
+
+    "LOGIN": {
+        "TITLE": "Anmeldung",
+        "BUTTON": "Anmelden"
+    },
+
+    "RECORDING": {
+        "BASIC_DATA": {
+            "TITLE": "Grunddaten",
+            "LOCATION": "Technischer Platz",
+            "ROAD_NAME": "Straßenname",
+            "HOUSE_NUMBER_SECTION_LEFT": "Hausnummern links",
+            "HOUSE_NUMBER_SECTION_RIGHT": "Hausnummern rechts",
+            "HOUSE_NUMBER": "Hausnummer",
+            "ADDRESS_ADDITION": "Adresszusatz",
+            "PRIORITY": "Priorität",
+            "DEPARTMENT": "Abteilung",
+            "SURFACE": "Funktionsfläche",
+            "SHORT_TEXT": "Kurztext",
+            "LONG_TEXT": "Langtext",
+            "DETECTION_DATE": "Datum der Feststellung",
+
+            "PRIORITIES": {
+                "DANGER": "Gefahrenstelle",
+                "DISTURBANCE": "Störstelle",
+                "OTHER": "Sonstige Mängel"
+            },
+            "DEPARTMENTS": {
+                "AV": "Tiefbaubezirk AV",
+                "BZM": "Tiefbaubezirk BZM",
+                "SIGNAGE": "Beschilderung",
+                "MARK": "Markierung",
+                "WASTEWATER": "Abwasserbetrieb",
+                "GREEN": "Grünflächenamt"
+            },
+
+            "SURFACES": {
+                "CARRIAGEWAY": "Fahrbahn",
+                "FOOTPATH": "Fußweg",
+                "SIDEWALK": "Gehweg",
+                "GREEN": "Grünstreifen",
+                "PARKING": "Parkstreifen",
+                "PLACE": "Plätze",
+                "CYCLEWAY": "Radweg",
+                "STAIRWAY": "Treppenanlagen",
+                "OTHER": "Sonstige Flächen"
+            }
+        },
+
+        "CHARACTERISTICS": {
+            "TITLE": "Zustandsmerkmale",
+            "POSITION_TYPE": "Positionsart",
+            "GROUP": "Merkmalsgruppe",
+            "CONDITION": "Zustandsmerkmal",
+            "CONDITION_MAGNITUDE": "Zustandsgröße",
+            "EXPANSE": "Ausdehnung",
+            "MAGNITUDE": "Ausprägung",
+            "ORDER_POSITIONS": "Auftragspositionen",
+            "ADD_ORDER_POSITION": "Auftragsposition hinzufügen",
+            "ADD_PICTURE": "Foto hinzufügen",
+            "COUNT": "Anzahl",
+            "SIGNAGE_CATEGORY": "Beschilderungskategorie",
+
+            "POSITION_TYPES": {
+                "STANDARD": "Standard",
+                "SIGNAGE": "Beschilderung",
+                "CUSTOM": "Freitext"
+            },
+
+            "GROUPS": {
+                "FLATNESS": "Ebenheit",
+                "SUBSTANCE_ASPHALT": "Substanzmerkmale (Oberfläche), Asphalt",
+                "SUBSTANCE_PAVEMENT_AND_SLABS": "Substanzmerkmale (Oberfläche), Pflaster und Platten",
+                "EDGING_DAMAGE": "Schäden an Randeinfassungen",
+                "DRAINAGE_FACILITY_DAMAGE": "Schäden an Entwässerungseinrichtungen"
+            },
+            
+            "CONDITIONS": {
+                "GENERAL_UNEVENNESS": "Allgemeine Unebenheit",
+                "TRANSVERSE_UNEVENNESS": "Querunebenheit",
+                "CRACK": "Risse",
+                "MENDING_SPOT_ASPHALT": "Flickstellen",
+                "OTHER_SURFACE_DAMAGE": "Sonstige Oberflächenschäden",
+                "OPEN_SEAM_AND_JOINT": "Offene Nähte und Fugen",
+                "OPEN_PAVEMENT_JOINT_AND_SLAB_JOINT": "Offene Pflasterfugen und Plattenfugen",
+                "FRACTURE": "Bruch",
+                "LOOSENED_STRUCTURE": "Gelockerter Verband, Lagerungsschäden",
+                "STRUCTURE_RESOLUTION": "Gefügeauflösung",
+                "MENDING_SPOT_PAVEMENT_SLAB": "Flickstellen",
+                "EDGE": "Rand: Verkantungen, Verformungen, Abplatzungen, Ausbrüche und Brüche",
+                "DRAIN": "Straßenablauf: Höhenlage, Fehlstellen und gestörter Wasserablauf",
+                "GUTTER": "Rinne: Höhenlage, Fehlstellen und gestörter Wasserablauf"
+            },
+
+            "MAGNITUDES": {
+                "WEAK": "Schwach",
+                "DISTINCT": "Deutlich",
+                "STRONG": "Stark"
+            },
+
+            "SIGNS": {
+                "DANGER": "Gefahrzeichen",
+                "DIRECTIONAL": "Richtzeichen",
+                "REGULATORY": "Vorschriftzeichen",
+                "TRAFFIC_CONTROL_PANELS": "Verkehrslenkungstafeln",
+                "TRAFFIC_FACILITIES": "Verkehrseinrichtungen",
+                "ADDITIONAL": "Zusatzzeichen"
+            }
+        },
+
+        "COMMENTS": {
+            "TITLE": "Bemerkungen",
+            "COMMENT": "Bemerkung",
+            "ADD_COMMENT": "Bemerkung hinzufügen"
+        }
+    },
+    
+    "REGISTRATION": {
+        "TITLE": "Registrierung",
+        "BUTTON": "Registrieren"
+    },
+
+    "CHANGE_PASSWORD": {
+        "TITLE": "Passwort ändern",
+        "NEW_PASSWORD": "Neues Passwort",
+        "BUTTON": "Änderung speichern"
+    },
+
+    "EDIT_USER": {
+        "TITLE": "Benutzer bearbeiten",
+        "USERS": "Benutzer",
+        "CONFIRM": "Bestätigen",
+        "BUTTON": "Änderungen speichern",
+        "DELETE_BUTTON": "Benutzer löschen",
+        "SELECT_USER_HINT": "Zu bearbeitender Benutzer"
+    },
+
+    "HOME": {
+        "TITLE": "Startseite"
+    },
+
+    "ROAD_NETWORK": {
+        "TITLE": "Straßennetz",
+        "SEARCH": "Adresssuche",
+
+        "COLORED_MAP": "Farbig",
+        "GREY_MAP": "Grau",
+        "AERIAL_Map": "Luftbild",
+
+        "ROAD_NUMBER": "Straßennummer",
+        "ROAD_NAME": "Straßenname",
+        "ROAD_LENGTH": "Fahrbahnlänge",
+        "SECTION_NUMBER": "Abschnitt",
+        "HOUSE_NUMBER_SECTION_LEFT": "Hausnummern links",
+        "HOUSE_NUMBER_SECTION_RIGHT": "Hausnummern rechts",
+        "FROM_NODE_KEY": "Von Netzknoten",
+        "TO_NODE_KEY": "Nach Netzknoten",
+        "LOCATION": "Technischer Platz"
+    },
+    
+    "PROFILE": {
+        "TITLE": "Profil",
+        "LOGOUT": "Abmelden",
+        "USER_ADMINISTRATION": "Benutzerverwaltung",
+        "ROAD_CONDITION_REGISTRATIONS": "Straßenzustandserfassungen",
+        "NUMBER_OF_RECORDINGS_TOTAL": "Anzahl (Gesamt)",
+        "NUMBER_OF_RECORDINGS_SELECTED_RANGE": "Anzahl (Ausgewählter Bereich)",
+        "STARTING_DATE": "Anfangsdatum",
+        "END_DATE": "Enddatum",
+        "EXPORT_XLSX": "Excel Export",
+        "EXPORT_CSV": "CSV Export",
+        "EXPORT_JSON": "JSON Export"
+    },
+
+    "SETTINGS": {
+        "TITLE": "Einstellungen",
+        "GENERAL": "Allgemein",
+        "DISPLAY_NODES": "Straßenknoten anzeigen",
+        "LANGUAGE": "Sprache"
+    },
+    
+    "MESSAGE": {
+        "SUCCESS": {
+            "USER_REQUESTED": "Benutzer '{{username}}' erfolgreich eingeloggt.",
+            "USER_CREATED": "Der Benutzer '{{username}}' wurde erfolgreich registriert",
+            "PASSWORD_CHANGED": "Ihr Passwort wurde erfolgreich geändert. Bitte loggen Sie sich fortan mit Ihrem neuen Passwort ein.",
+            "USER_EDITED": "Die Änderungen an dem Benutzer '{{username}}' wurden erfolgreich durchgeführt.",
+            "USER_DELETED": "Der Benutzer '{{username}}' wurde erfolgreich gelöscht.",
+            "ROLES_REQUESTED": "Die aktiven Benutzerrollen wurden erfolgreich abgefragt.",
+            "USERS_REQUESTED": "Die Benutzer wurden erfolgreich abgefragt.",
+            "NODES_REQUESTED": "Die Knoten des Straßennetzes wurden erfolgreich aktualisiert.",
+            "EDGES_REQUESTED": "Die Kanten des Straßennetzes wurden erfolgreich aktualisiert.",
+            "CHARACTERISTICS_REQUESTED": "Die aktiven Merkmale wurden erfolgreich abgefragt.",
+            "SIGNS_REQUESTED": "Die aktive Beschilderung wurden erfolgreich abgefragt.",
+            "PRIORITIES_REQUESTED": "Die aktiven Prioritäten wurden erfolgreich abgefragt.",
+            "DEPARTEMENTS_REQUESTED": "Die aktiven Abteilungen wurden erfolgreich abgefragt.",
+            "SURFACES_REQUESTED": "Die aktiven Oberflächen wurden erfolgreich abgefragt.",
+            "COMMENTS_REQUESTED": "Die aktiven Bemerkungen wurden erfolgreich abgefragt.",
+            "WATCH_POSITION": "Standortermittlung aktiviert.",
+            "ROAD_CONDITION_REGISTERED": "Straßenzustand erfolgreich erfasst."
+        },
+
+        "ERROR": {
+            "UNKNOWN": "Ein unbekannter Fehler ist aufgetreten.",
+            "INCOMPLETE_DATA": "Die Eingabe ist unvollständig! Bitte geben Sie alle erforderlichen Daten ein.",
+            "INCORRECT_DATA": "Die Eingabe ist fehlerhaft! Bitte überprüfen Sie ihre Angaben.",
+            "SQL_QUERY_FAILED": "Die Datenbankabfrage ist fehlgeschlagen. Bitte kontaktieren Sie einen Admin.",
+            "MODULE_OPERATION_FAILED": "Ein externes Servermodul konnte die Anfrage nicht abschließen. Bitte kontaktieren Sie einen Admin.",
+            "INSUFFICIENT_ACCESS_RIGHTS": "Sie verfügen nicht über die notwendigen Zugriffsrechte. Bitte nutzen Sie einen berechtigten Account.",
+            "USER_DEACTIVATED": "Der Benutzer ist bis '{{deactivatedUntil}}' deaktiviert.",
+            "NOT_RESPONDING": "Der Server antwortet nicht. Bitte versuchen Sie es später noch einmal oder kontaktieren Sie einen Admin.",
+            "UNAUTHORIZED_ACCESS": "Seitenzugriff verweigert. Verwenden Sie ein autorisierten Account.",
+            "WATCH_POSITION": "Standortermittlung fehlgeschlagen. Bitte prüfen Sie ihre Standorteinstellungen.",
+            "POSITION_OUT_OF_MAP": "Sie befinden sich außerhalb des Kartenbereichs! Standortermittlung beendet.",
+            "INCOMPLETE_PAGE_DATA": "Der angefragten Seite fehlen Daten. Bitte kontaktieren Sie einen Admin.",
+            "FETCH_DATA": "Die benötigten Daten konnten nicht geholt werden.",
+            "FETCHED_DATA_INCOMPLETE": "Datenabfrage unvollständig. Die Aktion kann dennoch ohne Probleme durchgeführt werden.",
+            "CAMERA_NOT_ACCESSIBLE": "Kamerazugriff nicht möglich. Stellen sie sicher, dass ihr Gerät eine Kamera besitzt.",
+            "PERMISSION_REQUIRED": "Eine Genehmigung ist erforderlich."
+        }
+    },
+
+    "VALIDATION": {
+        "REQUIRED": "Pflichtfeld.",
+        "PATTERN": "Ungültiges Eingabemuster.",
+        "MIN_LENGTH": "Die minimale Länge beträgt {{minLength}} Zeichen.",
+        "MAX_LENGTH": "Die maximale Länge beträgt {{maxLength}} Zeichen.",
+        "RANGE": "Muss im Bereich von {{min}}-{{max}} liegen.",
+        "DATE_CURRENT_OR_PAST": "Muss ein gültiges Datum sein, welches nicht in der Zukunft liegt.",
+        "DATE_CURRENT_OR_FUTURE": "Muss ein gültiges Datum sein, welches nicht in der Vergangeheit liegt.",
+        "BEGIN_DATE_BEFORE_END_DATE": "Muss früher als das Enddatum sein.",
+        "MIN": "Der Mindestwert ist {{min}}.",
+        "UNIQUE": "Die Eingabe existiert bereits."
+    },
+
+    "TOAST": {
+        "GOT_IT": "Verstanden",
+        "OK": "Ok"
+    }
+}
