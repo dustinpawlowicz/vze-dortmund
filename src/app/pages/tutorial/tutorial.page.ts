@@ -11,6 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 
 export class TutorialPage implements OnInit {
+  // Access child element with local varibale #slides from component
   @ViewChild('slides', { read: IonSlides, static: true }) public ionSlides: IonSlides;
 
   tutorialSlides: Slide[];

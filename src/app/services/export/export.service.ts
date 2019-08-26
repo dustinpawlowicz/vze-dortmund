@@ -34,7 +34,7 @@ export class ExportService {
    * @param filename      name of the exported file
    * @param exportOption  type of the export
    */
-  public export(json: any[], filename: string, exportOption: ExportOption) {
+  public export(json: any[], filename: string, exportOption: ExportOption): void {
     switch (exportOption) {
       case ExportOption.XLSX: this.exportAsExcelFile(json, filename); break;
       case ExportOption.CSV: this.exportAsCSVFile(json, filename); break;
@@ -84,7 +84,7 @@ export class ExportService {
    *
    * @param json json data to be exported into the worksheet
    */
-  private getWorksheet(json: any[]) {
+  private getWorksheet(json: any[]): XLSX.WorkSheet {
     return XLSX.utils.json_to_sheet(json);
   }
 

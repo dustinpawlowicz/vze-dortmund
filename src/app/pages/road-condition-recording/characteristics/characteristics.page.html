@@ -61,7 +61,7 @@
           </ion-label>
           <ion-item class='ion-no-padding ion-text-right bold' lines='none'>
               <ion-thumbnail slot='start'>
-                <img src='assets/img/signs/{{ signageOrderPosition.signCategoryProperty.key | keyToFilename }}/{{ signageOrderPosition.sign.key }}.jpg' [alt]='signageOrderPosition.sign.key' onerror="this.src='assets/img/signs/default.jpg'" />
+                <img src='assets/img/signs/{{ signageOrderPosition.signCategoryProperty.key | keyToFilename }}/{{ signageOrderPosition.sign.key }}.jpg' [alt]='signageOrderPosition.sign.key' onerror='this.src="assets/img/signs/default.jpg"' />
               </ion-thumbnail>
               {{ signageOrderPosition.sign.key }}
           </ion-item>

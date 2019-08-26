@@ -33,7 +33,7 @@ export class CharacteristicsPage implements OnInit {
    *
    * @param type  type of the order position
    */
-  async presentRecordPositionModal(type: Property) {
+  public async presentRecordPositionModal(type: Property): Promise<void> {
     let modal;
 
     switch (type.key) {

@@ -1,8 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({
-  name: 'keyToFilename'
-})
+@Pipe({ name: 'keyToFilename' })
 export class KeyToFilenamePipe implements PipeTransform {
 
   /**

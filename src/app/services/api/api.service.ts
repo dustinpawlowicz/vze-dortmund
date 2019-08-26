@@ -7,7 +7,7 @@ import { share } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ApiService {
-  private readonly API_URL: string = 'http://192.168.1.5:3000/api';
+  private readonly API_URL: string = 'http://192.168.1.41:3000/api';
   private defaultOptions: any;
 
   constructor(public http: HttpClient) {
@@ -19,7 +19,7 @@ export class ApiService {
   }
 
   /**
-   * post - POST-Request to the 'rest-api-vze-dortmund' RESTful API
+   * post - POST-Request to the 'http-api-vze-dortmund' HTTP API
    *
    * @param endpoint  endpoint of the API request
    * @param body      transmitted data in the body of the request
@@ -32,7 +32,7 @@ export class ApiService {
   }
 
   /**
-   * get - GET-Request to the 'rest-api-vze-dortmund' RESTful API
+   * get - GET-Request to the 'http-api-vze-dortmund' HTTP API
    *
    * @param endpoint  endpoint of the API request
    * @param options   http options for the respective request

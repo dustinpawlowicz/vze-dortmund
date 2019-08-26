@@ -31,7 +31,7 @@
       <div>
         <ion-item>
           <ion-label position='floating'>{{ 'RECORDING.COMMENTS.COMMENT' | translate }}:</ion-label>
-          <ion-input type="text" formControlName='comment'></ion-input>
+          <ion-input type='text' formControlName='comment'></ion-input>
         </ion-item>
         <ion-item lines='none' *ngIf='!commentsForm.controls.comment.valid && (commentsForm.touched || commentsForm.dirty)'>
           <ion-icon class='ion-padding-end' color='danger' name='information-circle-outline'></ion-icon>

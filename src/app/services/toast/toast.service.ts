@@ -6,7 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
   providedIn: 'root'
 })
 export class ToastService {
-  private toastQueue: any[] = new Array<HTMLIonToastElement>();
+  private toastQueue: HTMLIonToastElement[] = new Array<HTMLIonToastElement>();
   private buttonTexts: string[];
 
   constructor(
@@ -28,7 +28,7 @@ export class ToastService {
    *
    * @param msg content of the notification
    */
-  async presentSuccessToast(msg: string): Promise<void> {
+  public async presentSuccessToast(msg: string): Promise<void> {
     const toast = await this.toastController.create({
       message: msg,
       position: 'top',
@@ -51,7 +51,7 @@ export class ToastService {
    *
    * @param msg content of the notification
    */
-  async presentErrorToast(msg: string): Promise<void> {
+  public async presentErrorToast(msg: string): Promise<void> {
     const toast = await this.toastController.create({
       message: msg,
       position: 'top',

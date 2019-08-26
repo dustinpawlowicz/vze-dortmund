@@ -11,8 +11,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import Leaflet from 'leaflet';
-import { Subscription } from 'rxjs';
+import { Subscription, Subject } from 'rxjs';
 import { IncompletePageDataError } from 'src/app/errors/incomplete-page-data-error';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-road-network',
@@ -54,11 +55,9 @@ export class RoadNetworkPage implements OnInit, OnDestroy {
   private layerNodes: any;
   private edges: Edge[];
   private watchPositionSubscription: Subscription;
-  private geoJsonNodesSubscription: Subscription;
-  private geoJsonEdgesSubscription: Subscription;
-  private edgesSubscription: Subscription;
+  private destroySubject = new Subject();
   private positionMarker;
-  
+
   public selectedEdge: Edge;
   public locationFabColor = 'danger';
 
@@ -88,27 +87,31 @@ export class RoadNetworkPage implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.destroySubject.next();
     if (this.watchPositionSubscription) {
       this.watchPositionSubscription.unsubscribe();
     }
-    this.geoJsonNodesSubscription.unsubscribe();
-    this.geoJsonEdgesSubscription.unsubscribe();
-    this.edgesSubscription.unsubscribe();
   }
 
   ngOnInit(): void {
     this.initMap();
     this.initBaseLayers();
 
-    this.geoJsonNodesSubscription = this.roadNetworkService.getGeoJsonNodes().subscribe((geoJsonNodes) => {
+    this.roadNetworkService.getGeoJsonNodes().pipe(
+      takeUntil(this.destroySubject)
+    ).subscribe((geoJsonNodes) => {
       this.displayNodesOnMap(geoJsonNodes);
     });
 
-    this.geoJsonEdgesSubscription = this.roadNetworkService.getGeoJsonEdges().subscribe((geoJsonEdges) => {
+    this.roadNetworkService.getGeoJsonEdges().pipe(
+      takeUntil(this.destroySubject)
+    ).subscribe((geoJsonEdges) => {
       this.displayEdgesOnMap(geoJsonEdges);
     });
 
-    this.edgesSubscription = this.roadNetworkService.getEdges().subscribe((edges) => {
+    this.roadNetworkService.getEdges().pipe(
+      takeUntil(this.destroySubject)
+    ).subscribe((edges) => {
       this.edges = edges;
     });
 
@@ -276,7 +279,7 @@ export class RoadNetworkPage implements OnInit, OnDestroy {
   private addPopupRow(propertyName, value): string {
     return `
       <tr class='property'>
-        <th scope="row">` + propertyName + `:</th>
+        <th scope='row'>` + propertyName + `:</th>
         <td>` + value + `</td>
       </tr>`;
   }

@@ -20,12 +20,13 @@ export class AuthenticationGuard implements CanActivate {
    * @param state state of the router
    */
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    const url = encodeURI(state.url);
     if (this.userService.isLoggedIn()) {
-      console.log('Route activated.', next);
+      console.log('Route \'%s\' activated.', url);
       return true;
     }
 
-    console.log('Route declined. Redirect to login page.');
+    console.log('Route \'%s\' declined. Redirect to login page.', url);
     this.helperService.handleUnauthorizedAccess();
     this.router.navigate(['/login']);
     return false;

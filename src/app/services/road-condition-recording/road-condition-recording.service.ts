@@ -111,7 +111,7 @@ export class RoadConditionRecordingService {
    *
    * @jsonCharacteristicGroups  JSON of the characteristic groups to be set
    */
-  private setCharacteristicGroups(jsonCharacteristicGroups: any) {
+  private setCharacteristicGroups(jsonCharacteristicGroups: any): void {
     if (jsonCharacteristicGroups) {
       const characteristicGroups = new Array<CharacteristicGroup>();
       jsonCharacteristicGroups.forEach(element => {
@@ -126,7 +126,7 @@ export class RoadConditionRecordingService {
    *
    * @jsonSignCategories  JSON of the sign categories to be set
    */
-  private setSigns(jsonSignCategories: any) {
+  private setSigns(jsonSignCategories: any): void {
     if (jsonSignCategories) {
       const signCategories = new Array<SingCategory>();
       jsonSignCategories.forEach(element => {
@@ -141,7 +141,7 @@ export class RoadConditionRecordingService {
    *
    * @jsonPriorities  JSON of the sign priorities to be set
    */
-  private setPriorities(jsonPriorities: any) {
+  private setPriorities(jsonPriorities: any): void {
     if (jsonPriorities) {
       const priorities = new Array<Property>();
       jsonPriorities.forEach(priority => {
@@ -156,7 +156,7 @@ export class RoadConditionRecordingService {
    *
    * @jsonDepartements  JSON of the sign departements to be set
    */
-  private setDepartements(jsonDepartements: any) {
+  private setDepartements(jsonDepartements: any): void {
     if (jsonDepartements) {
       const departements = new Array<Property>();
       jsonDepartements.forEach(departement => {
@@ -171,7 +171,7 @@ export class RoadConditionRecordingService {
    *
    * @jsonSurfaces  JSON of the sign surfaces to be set
    */
-  private setSurfaces(jsonSurfaces: any) {
+  private setSurfaces(jsonSurfaces: any): void {
     if (jsonSurfaces) {
       const surfaces = new Array<Property>();
       jsonSurfaces.forEach(surface => {
@@ -186,7 +186,7 @@ export class RoadConditionRecordingService {
    *
    * @jsonComments  JSON of the sign comments to be set
    */
-  private setComments(jsonComments: any) {
+  private setComments(jsonComments: any): void {
     if (jsonComments) {
       const comments = new Array<Comment>();
       jsonComments.forEach(comment => {

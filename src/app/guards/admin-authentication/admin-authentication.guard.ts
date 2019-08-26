@@ -19,16 +19,17 @@ export class AdminAuthenticationGuard implements CanActivate {
    * @param state state of the router
    */
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    const url = encodeURI(state.url);
     if (this.userService.isAdmin()) {
-      console.log('Route activated.', next);
+      console.log('Route \'%s\' activated.', url);
       return true;
     }
 
     if (!this.userService.isLoggedIn()) {
-      console.log('Route declined. Redirect to login page.');
+      console.log('Route \'%s\' declined. Redirect to login page.', url);
       this.router.navigate(['/login']);
     } else {
-      console.log('Route declined.');
+      console.log('Route \'%s\' declined.', url);
     }
 
     this.helperService.handleUnauthorizedAccess();

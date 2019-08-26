@@ -4,7 +4,7 @@ import { HelperService } from './../../services/helper/helper.service';
 import { RoadNetworkService } from './../../services/road-network/road-network.service';
 import { Router } from '@angular/router';
 import { UserService } from './../../services/user/user.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { IncompleteDataError } from 'src/app/errors/incomplete-data-error';
 
 @Component({

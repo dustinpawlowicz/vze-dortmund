@@ -20,8 +20,7 @@ export class SettingsPage implements OnInit, OnDestroy {
 
   constructor(
     private formBuilder: FormBuilder,
-    private settingsService: SettingsService,
-    private translateService: TranslateService
+    private settingsService: SettingsService
   ) { }
 
   ngOnInit(): void {

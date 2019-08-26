@@ -7,7 +7,7 @@ Documentation of external functionalities within the service.
 **Notice:** The documentation within the corresponding 'service.ts' is to be used for the service's own methods.
 
 ### ApiService
-A service that performs any requests to the 'rest-api-vze-dortmund' RESTful API.<br />
+A service that performs any requests to the 'http-api-vze-dortmund' HTTP API.<br />
 For further details please navigate to the respective service.
 
 #### Imports
@@ -16,12 +16,12 @@ import { ApiService } from './../api/api.service';
 ```
 
 #### Methods
-POST-Request to the 'rest-api-vze-dortmund' RESTful API:
+POST-Request to the 'http-api-vze-dortmund' HTTP API:
 ```typescript
 ApiService.post(endpoint: string, body: any, options?: any): Observable<any>
 ```
 
-GET-Request to the 'rest-api-vze-dortmund' RESTful API:
+GET-Request to the 'http-api-vze-dortmund' HTTP API:
 ```typescript
 ApiService.get(endpoint: string, options?: any): Observable<any>
 ```

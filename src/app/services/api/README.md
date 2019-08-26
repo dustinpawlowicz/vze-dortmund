@@ -1,5 +1,5 @@
 # API Service
-A service that performs any requests to the 'rest-api-vze-dortmund' RESTful API.
+A service that performs any requests to the 'http-api-vze-dortmund' HTTP API.
 
 ## Documentation
 Documentation of external functionalities within the service.

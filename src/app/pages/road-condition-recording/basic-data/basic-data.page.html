@@ -85,10 +85,10 @@
           </ion-list-header>
           <ion-grid>
             <ion-row>
-              <ion-col *ngFor="let priority of priorities">
+              <ion-col *ngFor='let priority of priorities'>
                 <ion-item>
                   <ion-label>{{ 'RECORDING.BASIC_DATA.PRIORITIES.' + (priority.key | uppercase) | translate }}</ion-label>
-                  <ion-radio [value]="priority"></ion-radio>
+                  <ion-radio [value]='priority'></ion-radio>
                 </ion-item>
               </ion-col>
             </ion-row>
@@ -108,10 +108,10 @@
           </ion-list-header>
           <ion-grid>
             <ion-row>
-              <ion-col *ngFor="let departement of departements">
+              <ion-col *ngFor='let departement of departements'>
                 <ion-item>
                   <ion-label>{{ 'RECORDING.BASIC_DATA.DEPARTMENTS.' + (departement.key | uppercase) | translate }}</ion-label>
-                  <ion-radio [value]="departement"></ion-radio>
+                  <ion-radio [value]='departement'></ion-radio>
                 </ion-item>
               </ion-col>
             </ion-row>
@@ -131,10 +131,10 @@
           </ion-list-header>
           <ion-grid>
             <ion-row>
-              <ion-col *ngFor="let surface of surfaces">
+              <ion-col *ngFor='let surface of surfaces'>
                 <ion-item>
                   <ion-label>{{ 'RECORDING.BASIC_DATA.SURFACES.' + (surface.key | uppercase) | translate }}</ion-label>
-                  <ion-radio [value]="surface"></ion-radio>
+                  <ion-radio [value]='surface'></ion-radio>
                 </ion-item>
               </ion-col>
             </ion-row>

@@ -79,7 +79,7 @@
                     </p>
                   </ion-label>
                   <ion-thumbnail slot='start'>
-                      <img src='assets/img/signs/{{ selectedSignCategory.key | keyToFilename }}/{{ sign.key }}.jpg' [alt]='sign.key' onerror="this.src='assets/img/signs/default.jpg'" />
+                      <img src='assets/img/signs/{{ selectedSignCategory.key | keyToFilename }}/{{ sign.key }}.jpg' [alt]='sign.key' onerror='this.src="assets/img/signs/default.jpg"' />
                   </ion-thumbnail>
                   <ion-radio [value]='sign'></ion-radio>
                 </ion-item>
