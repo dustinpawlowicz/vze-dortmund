@@ -216,7 +216,7 @@
     "MESSAGE": {
         "SUCCESS": {
             "USER_REQUESTED": "Benutzer '{{username}}' erfolgreich eingeloggt.",
-            "USER_CREATED": "Der Benutzer '{{username}}' wurde erfolgreich registriert",
+            "USER_CREATED": "Der Benutzer '{{username}}' wurde erfolgreich registriert.",
             "PASSWORD_CHANGED": "Ihr Passwort wurde erfolgreich geändert. Bitte loggen Sie sich fortan mit Ihrem neuen Passwort ein.",
             "USER_EDITED": "Die Änderungen an dem Benutzer '{{username}}' wurden erfolgreich durchgeführt.",
             "USER_DELETED": "Der Benutzer '{{username}}' wurde erfolgreich gelöscht.",
